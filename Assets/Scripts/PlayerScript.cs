@@ -7,6 +7,7 @@ public class PlayerScript : MonoBehaviour
     public Camera cam;
     public SpringJoint holdSpring;
     public int grabDistance;
+    public Rigidbody grabbedObject;
     int layerMask = 1 << 6;
 
     void Start()
@@ -36,6 +37,22 @@ public class PlayerScript : MonoBehaviour
 
     public void SetGrabbedObject(Rigidbody _object)
     {
+        // set previous object back to normal physics
+        if (grabbedObject != null)
+        {
+            grabbedObject.drag = 1;
+            grabbedObject.angularDrag = 1;
+        }
+
+        grabbedObject = _object;
+
+        // set grabbed object to rigid physics
+        if (grabbedObject != null)
+        {
+            grabbedObject.drag = 100;
+            grabbedObject.angularDrag = 100;
+        }
+
         holdSpring.connectedBody = _object;
     }
 }
