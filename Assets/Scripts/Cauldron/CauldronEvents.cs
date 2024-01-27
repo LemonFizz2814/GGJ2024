@@ -10,7 +10,6 @@ public class CauldronEvents : MonoBehaviour
     public int MaxCauldronObjects;
     public Transform objectStorage;
     public Transform[] objectSpawn;
-    public CauldronUI cauldronUI;
 
     private List<string> ObjectsInCauldron = new List<string>();
     private List<GameObject> GameObjectsInCauldron = new List<GameObject>();
@@ -41,8 +40,6 @@ public class CauldronEvents : MonoBehaviour
             Debug.Log(string.Join(",", ObjectsInCauldron));
             collision.transform.GetComponent<Rigidbody>().velocity = Vector3.zero;
             collision.transform.position = objectStorage.position;
-
-            cauldronUI.PutObjectIn(GameObjectsInCauldron.Count - 1);
         }
     }
     private void Update()
