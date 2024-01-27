@@ -8,8 +8,11 @@ public class CauldronEvents : MonoBehaviour
 {
     [Header("Cauldron Properties")]
     public int MaxCauldronObjects;
+    public Transform objectStorage;
+    public Transform[] objectSpawn;
 
     private List<string> ObjectsInCauldron = new List<string>();
+    private List<GameObject> GameObjectsInCauldron = new List<GameObject>();
     private List<string> SecretRecipe = new List<string>();
 
     private int NoCorrectItemsInRecipe;
@@ -33,8 +36,10 @@ public class CauldronEvents : MonoBehaviour
         if (collision.gameObject.CompareTag("CauldronObject")) 
         {
             ObjectsInCauldron.Add(collision.gameObject.name);
+            GameObjectsInCauldron.Add(collision.gameObject);
             Debug.Log(string.Join(",", ObjectsInCauldron));
-            Destroy(collision.gameObject);
+            collision.transform.GetComponent<Rigidbody>().velocity = Vector3.zero;
+            collision.transform.position = objectStorage.position;
         }
     }
     private void Update()
@@ -81,7 +86,14 @@ public class CauldronEvents : MonoBehaviour
     // Remove from ObjectsInCauldron that does not exist in SecretRecipe
     private void RemoveCauldronItems()
     {
-        ObjectsInCauldron.RemoveAll(item => !SecretRecipe.Contains(item));
+        for(int i = 0; i < GameObjectsInCauldron.Count; i++)
+        {
+            GameObjectsInCauldron[i].transform.position = objectSpawn[i].position;
+        }
+
+        GameObjectsInCauldron.Clear();
+        ObjectsInCauldron.Clear();
+        //ObjectsInCauldron.RemoveAll(item => !SecretRecipe.Contains(item));
     }
 
     private void CauldronEvent()

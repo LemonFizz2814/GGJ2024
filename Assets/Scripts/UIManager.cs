@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 using TMPro;
+using UnityEditor.SearchService;
 
 public class UIManager : MonoBehaviour
 {
@@ -10,6 +12,7 @@ public class UIManager : MonoBehaviour
     public GameObject gameOverScreen;
     public GameObject gameWonScreen;
     public GameObject startScreen;
+    public GameObject wizardScreen;
 
     public RectTransform crosshair;
     public RadialSlider timerSlider;
@@ -20,6 +23,7 @@ public class UIManager : MonoBehaviour
     {
         DisplayGameOver(false);
         DisplayGameWon(false);
+        DisplayWizardScreen(false);
     }
 
     public void DisplayGameOver(bool _active)
@@ -29,6 +33,10 @@ public class UIManager : MonoBehaviour
     public void DisplayGameWon(bool _active)
     {
         gameWonScreen.SetActive(_active);
+    }
+    public void DisplayWizardScreen(bool _active)
+    {
+        wizardScreen.SetActive(_active);
     }
 
     public void ScaleCrosshair(float _scale)
@@ -52,5 +60,14 @@ public class UIManager : MonoBehaviour
     {
         startScreen.SetActive(_active);
         gameManager.GameStart();
+    }
+
+    public void RestartPressed()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+    public void ExitPressed()
+    {
+        SceneManager.LoadScene("MainMenu");
     }
 }

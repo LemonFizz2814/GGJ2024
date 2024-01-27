@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    [Header("Object References")]
+    public GameObject exitDoor;
+    public Transform wizardSpawn;
+    public Transform wizard;
+    [Space]
     [Header("Script References")]
     public UIManager uiManager;
     public PlayerScript playerScript;
@@ -20,6 +25,8 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         timer = gameTime;
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
 
     public void GameStart()
@@ -39,8 +46,9 @@ public class GameManager : MonoBehaviour
 
             if (timer <= 0)
             {
-                // game ended
-                GameOver("The wizard came home!");
+                // spawn in wizard when time is up
+                wizard.position = wizardSpawn.position;
+                uiManager.DisplayWizardScreen(true);
             }
         }
     }
@@ -54,13 +62,26 @@ public class GameManager : MonoBehaviour
             uiManager.SetGameOverText(_deathText);
             playerScript.SetCanMove(false);
             firstPersonController.SetCanMove(false);
+
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
         }
+    }
+
+    public void CauldronSolved()
+    {
+        exitDoor.SetActive(false);
     }
 
     public void GameWon()
     {
         gameOver = true;
         uiManager.DisplayGameWon(true);
+        playerScript.SetCanMove(false);
+        firstPersonController.SetCanMove(false);
+
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
 
     public void SetStartTimer(bool _set)

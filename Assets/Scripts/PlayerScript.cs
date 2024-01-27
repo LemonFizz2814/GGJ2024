@@ -101,7 +101,18 @@ public class PlayerScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag("BananaPeel"))
+        // game ending triggers
+        if(other.CompareTag("GameWin"))
+        {
+            gameManager.GameWon();
+        }
+        if (other.CompareTag("Wizard"))
+        {
+            gameManager.GameOver("Gandalf the Gay caught you");
+        }
+
+        // joke triggers
+        if (other.CompareTag("BananaPeel"))
         {
             gameManager.GameOver("You slipped on a banana peel");
         }

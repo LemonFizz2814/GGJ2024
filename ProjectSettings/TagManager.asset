@@ -8,6 +8,8 @@ TagManager:
   - CauldronObject
   - BananaPeel
   - WhoopeeCushion
+  - GameWin
+  - Wizard
   layers:
   - Default
   - TransparentFX
