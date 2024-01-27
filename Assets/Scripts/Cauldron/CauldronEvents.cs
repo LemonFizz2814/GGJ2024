@@ -12,6 +12,11 @@ public class CauldronEvents : MonoBehaviour
     private List<string> ObjectsInCauldron = new List<string>();
     private List<string> SecretRecipe = new List<string>();
 
+    private int NoCorrectItemsInRecipe;
+
+    private bool UpdateUI = false;
+    private bool ToPlayEvent = false;
+
     private void Start()
     {
         // Get a list of all objects in the Scene with the Tag CauldronObjects
@@ -37,11 +42,19 @@ public class CauldronEvents : MonoBehaviour
         // Only do things when cauldron has x number of items in it
         if (ObjectsInCauldron.Count == MaxCauldronObjects) 
         {
-            // Play Event
-            CauldronEvent();
-
             // Remove whatever needs to be removed
             RemoveCauldronItems();
+
+            UpdateUI = true;
+
+            NoCorrectItemsInRecipe = ObjectsInCauldron.Intersect(SecretRecipe).Count();
+        }
+
+        if (ToPlayEvent)
+        {
+            // Play Event
+            CauldronEvent();
+            ToPlayEvent = false;
         }
     }
 
@@ -65,10 +78,10 @@ public class CauldronEvents : MonoBehaviour
         return result;
     }
 
-    // For now this just removes everything
+    // Remove from ObjectsInCauldron that does not exist in SecretRecipe
     private void RemoveCauldronItems()
     {
-        ObjectsInCauldron.Clear();
+        ObjectsInCauldron.RemoveAll(item => !SecretRecipe.Contains(item));
     }
 
     private void CauldronEvent()
@@ -80,5 +93,30 @@ public class CauldronEvents : MonoBehaviour
         {
             Debug.Log("SUCCESS");
         }
+    }
+
+    public int GetNoCorrectItemsInRecipe()
+    {
+        return NoCorrectItemsInRecipe;
+    }
+
+    public bool GetUpdateUI()
+    {
+        return UpdateUI;
+    }
+
+    public void SetUpdateUI(bool NewValue)
+    {
+        UpdateUI = NewValue;
+    }
+
+    public bool GetToPlayEvent()
+    {
+        return ToPlayEvent;
+    }
+
+    public void SetToPlayEvent(bool NewValue)
+    {
+        ToPlayEvent = NewValue;
     }
 }
