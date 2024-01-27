@@ -10,15 +10,15 @@ public class CauldronEvents : MonoBehaviour
     public int MaxCauldronObjects;
     public Transform objectStorage;
     public Transform[] objectSpawn;
+    public CauldronUI cauldronUI;
+    public GameManager gameManager;
+    public PlayerScript playerScript;
 
     private List<string> ObjectsInCauldron = new List<string>();
     private List<GameObject> GameObjectsInCauldron = new List<GameObject>();
     private List<string> SecretRecipe = new List<string>();
 
-    private int NoCorrectItemsInRecipe;
-
-    private bool UpdateUI = false;
-    private bool ToPlayEvent = false;
+    private int numCorrectItemsInRecipe;
 
     private void Start()
     {
@@ -30,16 +30,19 @@ public class CauldronEvents : MonoBehaviour
         SecretRecipe = ChooseRecipe(GrabbableObjectsInScene);
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
         // Add Item to cauldron
-        if (collision.gameObject.CompareTag("CauldronObject")) 
+        if (other.gameObject.CompareTag("CauldronObject")) 
         {
-            ObjectsInCauldron.Add(collision.gameObject.name);
-            GameObjectsInCauldron.Add(collision.gameObject);
+            ObjectsInCauldron.Add(other.gameObject.name);
+            GameObjectsInCauldron.Add(other.gameObject);
             Debug.Log(string.Join(",", ObjectsInCauldron));
-            collision.transform.GetComponent<Rigidbody>().velocity = Vector3.zero;
-            collision.transform.position = objectStorage.position;
+            playerScript.DropObject();
+            other.transform.GetComponent<Rigidbody>().velocity = Vector3.zero;
+            other.transform.position = objectStorage.position;
+
+            cauldronUI.PutObjectIn(GameObjectsInCauldron.Count - 1);
         }
     }
     private void Update()
@@ -47,19 +50,15 @@ public class CauldronEvents : MonoBehaviour
         // Only do things when cauldron has x number of items in it
         if (ObjectsInCauldron.Count == MaxCauldronObjects) 
         {
+            CauldronRecipeCheck();
+
+            numCorrectItemsInRecipe = ObjectsInCauldron.Intersect(SecretRecipe).Count();
+            print("NoCorrectItemsInRecipe " + numCorrectItemsInRecipe);
+
+            cauldronUI.UpdateUI(numCorrectItemsInRecipe);
+
             // Remove whatever needs to be removed
             RemoveCauldronItems();
-
-            UpdateUI = true;
-
-            NoCorrectItemsInRecipe = ObjectsInCauldron.Intersect(SecretRecipe).Count();
-        }
-
-        if (ToPlayEvent)
-        {
-            // Play Event
-            CauldronEvent();
-            ToPlayEvent = false;
         }
     }
 
@@ -96,7 +95,7 @@ public class CauldronEvents : MonoBehaviour
         //ObjectsInCauldron.RemoveAll(item => !SecretRecipe.Contains(item));
     }
 
-    private void CauldronEvent()
+    private void CauldronRecipeCheck()
     {
         // Success
         bool areEqual = ObjectsInCauldron.OrderBy(t => t).SequenceEqual(SecretRecipe.OrderBy(t => t));
@@ -104,31 +103,7 @@ public class CauldronEvents : MonoBehaviour
         if (areEqual)
         {
             Debug.Log("SUCCESS");
+            gameManager.CauldronSolved();
         }
-    }
-
-    public int GetNoCorrectItemsInRecipe()
-    {
-        return NoCorrectItemsInRecipe;
-    }
-
-    public bool GetUpdateUI()
-    {
-        return UpdateUI;
-    }
-
-    public void SetUpdateUI(bool NewValue)
-    {
-        UpdateUI = NewValue;
-    }
-
-    public bool GetToPlayEvent()
-    {
-        return ToPlayEvent;
-    }
-
-    public void SetToPlayEvent(bool NewValue)
-    {
-        ToPlayEvent = NewValue;
     }
 }

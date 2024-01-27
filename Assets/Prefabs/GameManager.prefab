@@ -83,7 +83,7 @@ MonoBehaviour:
   uiManager: {fileID: 0}
   playerScript: {fileID: 0}
   firstPersonController: {fileID: 0}
-  gameTime: 180
+  gameTime: 240
 --- !u!1001 &1350053919492029849
 PrefabInstance:
   m_ObjectHideFlags: 0

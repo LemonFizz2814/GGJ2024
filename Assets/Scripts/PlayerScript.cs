@@ -94,9 +94,9 @@ public class PlayerScript : MonoBehaviour
             }
         }
 
-        if (transform.position.y < -5)
+        if (Input.GetKeyDown(KeyCode.R))
         {
-            SceneManager.LoadScene("Backrooms");
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
 
