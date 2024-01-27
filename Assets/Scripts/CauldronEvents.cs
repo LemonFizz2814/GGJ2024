@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using System.Linq;
 
 public class CauldronEvents : MonoBehaviour
 {
@@ -8,6 +10,17 @@ public class CauldronEvents : MonoBehaviour
     public int MaxCauldronObjects;
 
     private List<string> ObjectsInCauldron = new List<string>();
+    private List<string> SecretRecipe = new List<string>();
+
+    private void Start()
+    {
+        // Get a list of all objects in the Scene with the Tag CauldronObjects
+        // To randomly generate the recipe to escape
+        List<GameObject> GrabbableObjectsInScene = new List<GameObject>(GameObject.FindGameObjectsWithTag("CauldronObject"));
+
+        // Set the Secret Recipe for Success
+        SecretRecipe = ChooseRecipe(GrabbableObjectsInScene);
+    }
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -32,6 +45,26 @@ public class CauldronEvents : MonoBehaviour
         }
     }
 
+    // Randomly Select Cauldron Objects to create the secret recipe
+    private List<string> ChooseRecipe(List<GameObject> ObjectsToChooseFrom)
+    {
+        List<string> result = new List<string>();
+
+        // Select Random Objects for Secret Recipe
+        for (int i = 0; i < MaxCauldronObjects; i++)
+        {
+            int NoObjects = ObjectsToChooseFrom.Count;
+            int randomIndex = Random.Range(0, NoObjects);
+
+            result.Add(ObjectsToChooseFrom[randomIndex].name);
+            ObjectsToChooseFrom.Remove(ObjectsToChooseFrom[randomIndex]);
+        }
+
+        Debug.Log("The Secret Recipe is " + string.Join(", ", result));
+
+        return result;
+    }
+
     // For now this just removes everything
     private void RemoveCauldronItems()
     {
@@ -40,10 +73,12 @@ public class CauldronEvents : MonoBehaviour
 
     private void CauldronEvent()
     {
-        // Event 1
-        if (ObjectsInCauldron.Contains("Teapot") && ObjectsInCauldron.Contains("Glove"))
+        // Success
+        bool areEqual = ObjectsInCauldron.OrderBy(t => t).SequenceEqual(SecretRecipe.OrderBy(t => t));
+
+        if (areEqual)
         {
-            Debug.Log("EXPLOSION");
+            Debug.Log("SUCCESS");
         }
     }
 }
