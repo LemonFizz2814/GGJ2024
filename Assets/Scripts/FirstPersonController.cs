@@ -20,7 +20,7 @@ public class FirstPersonController : MonoBehaviour
 {
     private Rigidbody rb;
 
-    private bool gameOver;
+    private bool canMove = false;
 
     #region Camera Movement Variables
 
@@ -152,18 +152,13 @@ public class FirstPersonController : MonoBehaviour
             sprintCooldownReset = sprintCooldown;
         }
     }
-    public void SetGameOver(bool _gameOver)
+    public void SetCanMove(bool _canMove)
     {
-        gameOver = _gameOver;
+        canMove = _canMove;
     }
 
     void Start()
     {
-        if(lockCursor)
-        {
-            Cursor.lockState = CursorLockMode.Locked;
-        }
-
         #region Sprint Bar
 
         sprintBarCG = GetComponentInChildren<CanvasGroup>();
@@ -175,7 +170,7 @@ public class FirstPersonController : MonoBehaviour
 
     private void Update()
     {
-        if (gameOver)
+        if (!canMove)
         {
             return;
         }
@@ -343,7 +338,7 @@ public class FirstPersonController : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (gameOver)
+        if (!canMove)
         {
             return;
         }

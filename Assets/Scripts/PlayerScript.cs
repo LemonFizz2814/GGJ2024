@@ -19,7 +19,7 @@ public class PlayerScript : MonoBehaviour
     public float throwSpeed;
 
     // private variables
-    private bool gameOver;
+    private bool canMove = false;
     private int layerMaskGrabbable = 1 << 6;
     //int layerMaskPullable = 1 << 7;
 
@@ -30,7 +30,7 @@ public class PlayerScript : MonoBehaviour
 
     void Update()
     {
-        if (gameOver)
+        if (!canMove)
         {
             return;
         }
@@ -123,8 +123,8 @@ public class PlayerScript : MonoBehaviour
         }
     }
 
-    public void SetGameOver(bool _gameOver)
+    public void SetCanMove(bool _canMove)
     {
-        gameOver = _gameOver;
+        canMove = _canMove;
     }
 }

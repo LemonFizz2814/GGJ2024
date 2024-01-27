@@ -20,7 +20,13 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         timer = gameTime;
+    }
+
+    public void GameStart()
+    {
         SetStartTimer(true);
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
     private void Update()
@@ -34,7 +40,7 @@ public class GameManager : MonoBehaviour
             if (timer <= 0)
             {
                 // game ended
-                GameOver("");
+                GameOver("The wizard came home!");
             }
         }
     }
@@ -46,8 +52,8 @@ public class GameManager : MonoBehaviour
             gameOver = true;
             uiManager.DisplayGameOver(true);
             uiManager.SetGameOverText(_deathText);
-            playerScript.SetGameOver(true);
-            firstPersonController.SetGameOver(true);
+            playerScript.SetCanMove(false);
+            firstPersonController.SetCanMove(false);
         }
     }
 
@@ -60,5 +66,7 @@ public class GameManager : MonoBehaviour
     public void SetStartTimer(bool _set)
     {
         startTimer = _set;
+        playerScript.SetCanMove(true);
+        firstPersonController.SetCanMove(true);
     }
 }

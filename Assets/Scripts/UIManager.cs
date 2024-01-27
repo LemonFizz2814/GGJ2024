@@ -5,8 +5,12 @@ using TMPro;
 
 public class UIManager : MonoBehaviour
 {
+    public GameManager gameManager;
+
     public GameObject gameOverScreen;
     public GameObject gameWonScreen;
+    public GameObject startScreen;
+
     public RectTransform crosshair;
     public RadialSlider timerSlider;
 
@@ -42,5 +46,11 @@ public class UIManager : MonoBehaviour
         {
             gameOverText.text = _text;
         }
+    }
+
+    public void StartPressed(bool _active)
+    {
+        startScreen.SetActive(_active);
+        gameManager.GameStart();
     }
 }
