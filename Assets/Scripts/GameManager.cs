@@ -38,7 +38,7 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if (startTimer)
+        if (startTimer && !gameOver)
         {
             timer -= Time.deltaTime;
             float timeLeft = 1 - (timer / gameTime);

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,10 +8,16 @@ public class CauldronUI : MonoBehaviour
 {
     [Header("Recipe Properties")]
     public List<Image> RecipeItems;
+    public GameObject successText;
 
     public CauldronEvents Events;
 
-    public void UpdateUI(int _numCorrectItemsInRecipe)
+    private void Start()
+    {
+        successText.SetActive(false);
+    }
+
+    public void UpdateUI(int _numCorrectItemsInRecipe, bool _solved)
     {
         StopAllCoroutines();
 
@@ -21,7 +28,14 @@ public class CauldronUI : MonoBehaviour
             RecipeItems[i].color = (i < _numCorrectItemsInRecipe) ? Color.green : Color.red;
         }
 
-        StartCoroutine(SetBackToNormal());
+        if (!_solved)
+        {
+            StartCoroutine(SetBackToNormal());
+        }
+        else
+        {
+            successText.SetActive(true);
+        }
     }
 
     IEnumerator SetBackToNormal()

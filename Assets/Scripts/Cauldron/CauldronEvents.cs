@@ -55,7 +55,9 @@ public class CauldronEvents : MonoBehaviour
             numCorrectItemsInRecipe = ObjectsInCauldron.Intersect(SecretRecipe).Count();
             print("NoCorrectItemsInRecipe " + numCorrectItemsInRecipe);
 
-            cauldronUI.UpdateUI(numCorrectItemsInRecipe);
+            bool solved = (numCorrectItemsInRecipe == MaxCauldronObjects);
+
+            cauldronUI.UpdateUI(numCorrectItemsInRecipe, solved);
 
             // Remove whatever needs to be removed
             RemoveCauldronItems();
