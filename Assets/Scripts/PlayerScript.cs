@@ -7,6 +7,7 @@ public class PlayerScript : MonoBehaviour
 {
     [Header("Script References")]
     public UIManager uiManager;
+    public GameManager gameManager;
     [Space]
     [Header("Object references")]
     public Camera cam;
@@ -84,6 +85,18 @@ public class PlayerScript : MonoBehaviour
     {
         _pullableScript.SetLerp(0.5f);
     }*/
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.CompareTag("BananaPeel"))
+        {
+            gameManager.GameOver("You slipped on a banana peel");
+        }
+        if (other.CompareTag("WhoopeeCushion"))
+        {
+            Debug.LogError($"Played audio for whoopee cushon pleaseeeee");
+        }
+    }
 
     public void GrabObject(Rigidbody _object)
     {

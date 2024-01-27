@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Cauldron
   - CauldronObject
+  - BananaPeel
+  - WhoopeeCushion
   layers:
   - Default
   - TransparentFX
