@@ -11,18 +11,25 @@ public class Interact : MonoBehaviour
     }
 
     public INTERACTTYPE interact = INTERACTTYPE.DYNAMITE;
+    public string GameOverText;
     [SerializeField]private GameManager gm;
 
     private void Start()
     {
-        if (gm = null)
+        if (gm == null)
         {
             gm = FindObjectOfType<GameManager>().GetComponent<GameManager>();
         }
     }
     virtual public void ActivateInteract()
     {
-        
+        switch (interact)
+        {
+            case INTERACTTYPE.DYNAMITE:
+                gm.GameOver(GameOverText);
+                break;
+
+        }
 
         Debug.Log("Object interacted");
         Destroy(gameObject);

@@ -111,4 +111,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interact: 0
+  GameOverText: Must've been some old Dynamite
   gm: {fileID: 0}
