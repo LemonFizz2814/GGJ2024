@@ -1,17 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Playables;
 
 public class Interact : MonoBehaviour
 {
     public enum INTERACTTYPE
     {
         DYNAMITE,
-        OPENABLE
+        SANDWICH
     }
 
+    [Header("Interaction settings")]
     public INTERACTTYPE interact = INTERACTTYPE.DYNAMITE;
-    public string GameOverText;
+    public ParticleSystem VFX;
+    public Animator interactAnim;
+    public PlayableDirector cutscene;
+
+    [Header("Game over settings")]
+    [TextArea(0, 4)] public string GameOverText;
+    [SerializeField] private float deathTimer = 0.0f;
     [SerializeField]private GameManager gm;
 
     private void Start()
@@ -26,12 +34,35 @@ public class Interact : MonoBehaviour
         switch (interact)
         {
             case INTERACTTYPE.DYNAMITE:
-                gm.GameOver(GameOverText);
+                interactAnim.SetBool("Play", true);
                 break;
-
+            case INTERACTTYPE.SANDWICH:
+                cutscene.Play(cutscene.playableAsset);
+                break;
         }
+        StartCoroutine(OverTimer());
 
-        Debug.Log("Object interacted");
-        Destroy(gameObject);
+        //Debug.Log("Object interacted");
+        //Destroy(gameObject);
+    }
+
+    public void PlayVFX()
+    {
+        VFX.Play();
+        
+        //Hide the object if its dynamite
+        if (interact == INTERACTTYPE.DYNAMITE)
+        {
+            gameObject.transform.Find("DynamiteStick").gameObject.SetActive(false);
+        }
+    }
+
+    private IEnumerator OverTimer()
+    {
+
+        yield return new WaitForSeconds(deathTimer);
+
+        gm.GameOver(GameOverText);
+
     }
 }

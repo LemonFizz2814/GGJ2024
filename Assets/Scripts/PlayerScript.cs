@@ -18,14 +18,17 @@ public class PlayerScript : MonoBehaviour
     public float grabDistance;
     public float throwSpeed;
 
+    private FirstPersonController fpcPlayer;
+
     // private variables
-    private bool canMove = false;
+    private bool canMove = true;
     private int layerMaskGrabbable = 1 << 6;
     private int layerMaskInteract = 1 << 7;
     //int layerMaskPullable = 1 << 7;
 
     void Start()
     {
+        fpcPlayer = GetComponent<FirstPersonController>();
         DropObject();
     }
 
@@ -33,6 +36,8 @@ public class PlayerScript : MonoBehaviour
     {
         if (!canMove)
         {
+            fpcPlayer.cameraCanMove = false;
+            fpcPlayer.playerCanMove = false;
             return;
         }
 
@@ -64,6 +69,7 @@ public class PlayerScript : MonoBehaviour
             {
                 Interact objInteract = hit.transform.gameObject.GetComponent<Interact>();
                 objInteract.ActivateInteract();
+                canMove = false;
             }
             //Debug.Log(hit.transform.name);
         }
