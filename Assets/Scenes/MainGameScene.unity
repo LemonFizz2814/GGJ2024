@@ -942,6 +942,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4459864850019384740, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
+      propertyPath: enableSprint
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4459864850019384750, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
       propertyPath: m_Name
       value: PlayerController
@@ -2326,14 +2330,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4348786676372622400, guid: 62f0265bc609a9947bc10d81280237b7, type: 3}
-      propertyPath: m_FillAmount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6529317113463300589, guid: 62f0265bc609a9947bc10d81280237b7, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6700192342402652811, guid: 62f0265bc609a9947bc10d81280237b7, type: 3}
       propertyPath: m_Name
       value: Canvas
@@ -2566,7 +2562,7 @@ PrefabInstance:
       objectReference: {fileID: 808878020}
     - target: {fileID: 8356684488298960810, guid: 87a9d1730036f4743bcee467cc6996c9, type: 3}
       propertyPath: gameTime
-      value: 300
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8356684488298960810, guid: 87a9d1730036f4743bcee467cc6996c9, type: 3}
       propertyPath: uiManager

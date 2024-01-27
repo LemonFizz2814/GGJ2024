@@ -9,10 +9,13 @@ public class UIManager : MonoBehaviour
 {
     public GameManager gameManager;
 
+    public GameObject gameScreen;
     public GameObject gameOverScreen;
     public GameObject gameWonScreen;
     public GameObject startScreen;
     public GameObject wizardScreen;
+
+    public Animator stopWatchAnimator;
 
     public RectTransform crosshair;
     public RadialSlider timerSlider;
@@ -22,6 +25,7 @@ public class UIManager : MonoBehaviour
     private void Start()
     {
         startScreen.SetActive(true);
+        gameScreen.SetActive(true);
         DisplayGameOver(false);
         DisplayGameWon(false);
         DisplayWizardScreen(false);
@@ -61,6 +65,7 @@ public class UIManager : MonoBehaviour
     {
         startScreen.SetActive(_active);
         gameManager.GameStart();
+        stopWatchAnimator.SetTrigger("Start");
     }
 
     public void RestartPressed()
