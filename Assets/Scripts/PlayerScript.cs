@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class PlayerScript : MonoBehaviour
 {
+    [Header("Script References")]
+    public UIManager uiManager;
+    [Space]
     [Header("Object references")]
     public Camera cam;
     public Rigidbody grabbedObject;
@@ -15,7 +18,8 @@ public class PlayerScript : MonoBehaviour
     public float throwSpeed;
 
     // private variables
-    int layerMaskGrabbable = 1 << 6;
+    private bool gameOver;
+    private int layerMaskGrabbable = 1 << 6;
     //int layerMaskPullable = 1 << 7;
 
     void Start()
@@ -25,24 +29,36 @@ public class PlayerScript : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetMouseButtonDown(0))
+        if (gameOver)
         {
-            RaycastHit hit;
-            Debug.DrawRay(cam.transform.position, cam.transform.forward * grabDistance, Color.yellow, 0.5f);
-
-            if (Physics.Raycast(cam.transform.position, cam.transform.forward * grabDistance, out hit, Mathf.Infinity, layerMaskGrabbable))
-            {
-                Debug.Log($"Grabbed {hit.transform.name}");
-                GrabObject(hit.transform.GetComponent<Rigidbody>());
-            }
-            /*if (Physics.Raycast(cam.transform.position, cam.transform.forward * grabDistance, out hit, Mathf.Infinity, layerMaskPullable))
-            {
-                Debug.Log($"Pulling {hit.transform.name}");
-                SetPullableObject(hit.transform.GetComponent<Pullable>());
-            }*/
+            return;
         }
 
-        if(Input.GetMouseButtonUp(0))
+        RaycastHit hit;
+        if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, grabDistance, layerMaskGrabbable))
+        {
+            uiManager.ScaleCrosshair(2.5f);
+
+            if (Input.GetMouseButtonDown(0))
+            {
+                Debug.Log($"Grabbed {hit.transform.name}");
+                Debug.DrawRay(cam.transform.position, cam.transform.forward * grabDistance, Color.yellow, 0.5f);
+
+                GrabObject(hit.transform.GetComponent<Rigidbody>());
+
+                /*if (Physics.Raycast(cam.transform.position, cam.transform.forward * grabDistance, out hit, Mathf.Infinity, layerMaskPullable))
+                {
+                    Debug.Log($"Pulling {hit.transform.name}");
+                    SetPullableObject(hit.transform.GetComponent<Pullable>());
+                }*/
+            }
+        }
+        else
+        {
+            uiManager.ScaleCrosshair(1);
+        }
+
+        if (Input.GetMouseButtonUp(0))
         {
             Debug.Log($"Dropped");
             DropObject();
@@ -51,14 +67,14 @@ public class PlayerScript : MonoBehaviour
         if (Input.GetMouseButtonDown(1))
         {
             Debug.Log($"Throw");
-            if(grabbedObject != null)
+            if (grabbedObject != null)
             {
                 grabbedObject.AddForce(cam.transform.forward * throwSpeed);
                 DropObject();
             }
         }
 
-        if(transform.position.y < -5)
+        if (transform.position.y < -5)
         {
             SceneManager.LoadScene("Backrooms");
         }
@@ -76,7 +92,7 @@ public class PlayerScript : MonoBehaviour
 
         // set grabbed object to rigid physics
         grabbedObject.drag = 100;
-        grabbedObject.angularDrag = 100;
+        grabbedObject.angularDrag = 10;
 
         holdSpring.connectedBody = _object;
     }
@@ -92,5 +108,10 @@ public class PlayerScript : MonoBehaviour
             grabbedObject = null;
             holdSpring.connectedBody = null;
         }
+    }
+
+    public void SetGameOver(bool _gameOver)
+    {
+        gameOver = _gameOver;
     }
 }

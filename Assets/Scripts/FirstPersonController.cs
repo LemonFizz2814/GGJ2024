@@ -8,15 +8,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Unity.VisualScripting;
+
 
 #if UNITY_EDITOR
-    using UnityEditor;
+using UnityEditor;
     using System.Net;
 #endif
 
 public class FirstPersonController : MonoBehaviour
 {
     private Rigidbody rb;
+
+    private bool gameOver;
 
     #region Camera Movement Variables
 
@@ -148,6 +152,10 @@ public class FirstPersonController : MonoBehaviour
             sprintCooldownReset = sprintCooldown;
         }
     }
+    public void SetGameOver(bool _gameOver)
+    {
+        gameOver = _gameOver;
+    }
 
     void Start()
     {
@@ -167,6 +175,10 @@ public class FirstPersonController : MonoBehaviour
 
     private void Update()
     {
+        if (gameOver)
+        {
+            return;
+        }
         #region Camera
 
         // Control camera movement
@@ -331,6 +343,10 @@ public class FirstPersonController : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (gameOver)
+        {
+            return;
+        }
         #region Movement
 
         if (playerCanMove)
