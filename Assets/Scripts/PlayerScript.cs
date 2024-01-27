@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class PlayerScript : MonoBehaviour
@@ -55,6 +56,11 @@ public class PlayerScript : MonoBehaviour
                 grabbedObject.AddForce(cam.transform.forward * throwSpeed);
                 DropObject();
             }
+        }
+
+        if(transform.position.y < -5)
+        {
+            SceneManager.LoadScene("Backrooms");
         }
     }
 
