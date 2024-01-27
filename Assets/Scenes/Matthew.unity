@@ -354,6 +354,36 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
+--- !u!1 &629797473 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4459864850019384750, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
+  m_PrefabInstance: {fileID: 525697515}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1030514019 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2757680270974753170, guid: a13e2979cf3d2c64889e53eba5481c3d, type: 3}
+  m_PrefabInstance: {fileID: 8302159160553403559}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1030514021
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1030514019}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Version: 1
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
 --- !u!4 &1106137022 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7496136855125467771, guid: a13e2979cf3d2c64889e53eba5481c3d, type: 3}
@@ -461,7 +491,7 @@ PlayableDirector:
   m_InitialTime: 0
   m_SceneBindings:
   - key: {fileID: 1052186221416795755, guid: c7551c0bc9633ac4c82cb2143da26031, type: 2}
-    value: {fileID: 4459864850443697232}
+    value: {fileID: 4459864850443697235}
   - key: {fileID: 4292691486390640540, guid: c7551c0bc9633ac4c82cb2143da26031, type: 2}
     value: {fileID: 8758859961162246107}
   m_ExposedReferences:
@@ -639,6 +669,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1348351872}
   - component: {fileID: 1348351871}
+  - component: {fileID: 1348351873}
   m_Layer: 0
   m_Name: Directional Light
   m_TagString: Untagged
@@ -723,6 +754,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!114 &1348351873
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1348351870}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Version: 1
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
 --- !u!1001 &1372893935
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1002,7 +1053,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 717915473074544413, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
   m_PrefabInstance: {fileID: 525697515}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 629797473}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d0af54fe97abfa441901c868abaff9e2, type: 3}
@@ -1013,17 +1064,32 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4459864850019384740, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
   m_PrefabInstance: {fileID: 525697515}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 629797473}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d90ba6530d9bfda47abb4610956b2f44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!95 &4459864850443697232 stripped
+--- !u!95 &4459864850443697235
 Animator:
-  m_CorrespondingSourceObject: {fileID: 4459864850443697232, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
-  m_PrefabInstance: {fileID: 525697515}
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 629797473}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 91d56be4d79033a439e33c7d4ddae2f5, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &8302159160553403559
 PrefabInstance:
   m_ObjectHideFlags: 0
