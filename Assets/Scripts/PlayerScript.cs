@@ -21,6 +21,7 @@ public class PlayerScript : MonoBehaviour
     // private variables
     private bool canMove = false;
     private int layerMaskGrabbable = 1 << 6;
+    private int layerMaskInteract = 1 << 7;
     //int layerMaskPullable = 1 << 7;
 
     void Start()
@@ -53,6 +54,18 @@ public class PlayerScript : MonoBehaviour
                     SetPullableObject(hit.transform.GetComponent<Pullable>());
                 }*/
             }
+            
+        }
+        else if (Physics.Raycast(cam.transform.position, cam.transform.forward * grabDistance, out hit, Mathf.Infinity, layerMaskInteract))
+        {
+            uiManager.ScaleCrosshair(2.5f);
+
+            if (Input.GetMouseButtonDown(0))
+            {
+                Interact objInteract = hit.transform.gameObject.GetComponent<Interact>();
+                objInteract.ActivateInteract();
+            }
+            //Debug.Log(hit.transform.name);
         }
         else
         {
