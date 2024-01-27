@@ -21,6 +21,7 @@ public class UIManager : MonoBehaviour
 
     private void Start()
     {
+        startScreen.SetActive(true);
         DisplayGameOver(false);
         DisplayGameWon(false);
         DisplayWizardScreen(false);

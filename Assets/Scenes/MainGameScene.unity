@@ -141,7 +141,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!64 &412746697
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -595,6 +595,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4348786676372622400, guid: 62f0265bc609a9947bc10d81280237b7, type: 3}
+      propertyPath: m_FillAmount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6529317113463300589, guid: 62f0265bc609a9947bc10d81280237b7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6700192342402652811, guid: 62f0265bc609a9947bc10d81280237b7, type: 3}
       propertyPath: m_Name
       value: Canvas
