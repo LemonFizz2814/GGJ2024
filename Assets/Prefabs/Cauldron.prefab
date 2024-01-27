@@ -909,9 +909,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   RecipeItems:
   - {fileID: 1568356450657137171}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 4358642819635659861}
+  - {fileID: 7983807379994858489}
+  - {fileID: 3658491004968256479}
 --- !u!1 &5467086029291930065
 GameObject:
   m_ObjectHideFlags: 0

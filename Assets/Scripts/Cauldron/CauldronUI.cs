@@ -21,10 +21,12 @@ public class CauldronUI : MonoBehaviour
         // Change Images to the correct number of items
         if (Events.GetUpdateUI())
         {
+            StopAllCoroutines();
+
             // Set Everything White
             for (int i = 0; i < RecipeItems.Count; i++)
             {
-                RecipeItems[i].color = Color.white;
+                RecipeItems[i].color = Color.red;
             }
 
             // Set Correct Things Green
@@ -33,8 +35,24 @@ public class CauldronUI : MonoBehaviour
                 RecipeItems[i].color = Color.green;
             }
 
+            StartCoroutine(SetBackToNormal());
+
             Events.SetUpdateUI(false);
             Events.SetToPlayEvent(true);
         }
+    }
+
+    IEnumerator SetBackToNormal()
+    {
+        yield return new WaitForSeconds(2.0f);
+        for (int i = 0; i < RecipeItems.Count; i++)
+        {
+            RecipeItems[i].color = Color.white;
+        }
+    }
+
+    public void PutObjectIn(int _index)
+    {
+        RecipeItems[_index].color = Color.grey;
     }
 }
