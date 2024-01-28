@@ -1798,7 +1798,7 @@ MonoBehaviour:
   VFX: {fileID: 0}
   interactAnim: {fileID: 0}
   cutscene: {fileID: 0}
-  GameOverText: Beware the Big Banana King of the Backrooms
+  GameOverText: Beware the Big Banana King born from the Backrooms
   deathTimer: 3.5
   gm: {fileID: 0}
   soundManager: {fileID: 0}
