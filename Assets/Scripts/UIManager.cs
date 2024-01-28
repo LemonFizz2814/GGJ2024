@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine;
 using TMPro;
-using UnityEditor.SearchService;
 using static SoundManager;
 
 public class UIManager : MonoBehaviour

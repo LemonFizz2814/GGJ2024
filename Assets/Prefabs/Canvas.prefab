@@ -3199,8 +3199,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: John Cordless - "I appear to be in a wizards home somehow, I can pick up
     things with left mouse and throw with right mouse. To open the door I've got
-    to put the correct 3 ingredients into the cauldron in the kitchen to unlock the
-    door to escape before Gandalf the Gay comes home!"
+    to put the correct 3 glowing ingredients into the cauldron in the kitchen to
+    unlock the door to escape before Gandalf the Gay comes home!"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c1ac72f10e3fcb9439176ed1edc532fa, type: 2}
   m_sharedMaterial: {fileID: 83039995520478610, guid: c1ac72f10e3fcb9439176ed1edc532fa, type: 2}
@@ -3227,8 +3227,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 32
-  m_fontSizeBase: 32
+  m_fontSize: 31
+  m_fontSizeBase: 31
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18

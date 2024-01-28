@@ -40,7 +40,7 @@ public class CauldronUI : MonoBehaviour
 
     IEnumerator SetBackToNormal()
     {
-        yield return new WaitForSeconds(2.0f);
+        yield return new WaitForSeconds(2.5f);
         for (int i = 0; i < RecipeItems.Count; i++)
         {
             if (RecipeItems[i].color != Color.grey)

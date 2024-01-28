@@ -2745,14 +2745,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3015991825863378367, guid: a13e2979cf3d2c64889e53eba5481c3d, type: 3}
-      propertyPath: m_Size.y
-      value: 0.9992518
-      objectReference: {fileID: 0}
-    - target: {fileID: 3015991825863378367, guid: a13e2979cf3d2c64889e53eba5481c3d, type: 3}
-      propertyPath: m_Center.y
-      value: -0.9342531
-      objectReference: {fileID: 0}
+    - target: {fileID: 4858457769870402765, guid: a13e2979cf3d2c64889e53eba5481c3d, type: 3}
+      propertyPath: gm
+      value: 
+      objectReference: {fileID: 1914449720}
+    - target: {fileID: 4858457769870402765, guid: a13e2979cf3d2c64889e53eba5481c3d, type: 3}
+      propertyPath: soundManager
+      value: 
+      objectReference: {fileID: 285659958}
     - target: {fileID: 6331649743077339919, guid: a13e2979cf3d2c64889e53eba5481c3d, type: 3}
       propertyPath: m_Name
       value: Level
@@ -2821,6 +2821,10 @@ PrefabInstance:
       propertyPath: cutscene
       value: 
       objectReference: {fileID: 199268729}
+    - target: {fileID: 8481640555434563290, guid: a13e2979cf3d2c64889e53eba5481c3d, type: 3}
+      propertyPath: soundManager
+      value: 
+      objectReference: {fileID: 285659958}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a13e2979cf3d2c64889e53eba5481c3d, type: 3}
 --- !u!1001 &8356684488600696978
@@ -2886,6 +2890,10 @@ PrefabInstance:
       propertyPath: exitDoor
       value: 
       objectReference: {fileID: 808878020}
+    - target: {fileID: 8356684488298960810, guid: 87a9d1730036f4743bcee467cc6996c9, type: 3}
+      propertyPath: gameTime
+      value: 330
+      objectReference: {fileID: 0}
     - target: {fileID: 8356684488298960810, guid: 87a9d1730036f4743bcee467cc6996c9, type: 3}
       propertyPath: uiManager
       value: 
