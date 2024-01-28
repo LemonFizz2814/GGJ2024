@@ -9,7 +9,8 @@ public class Interact : MonoBehaviour
     public enum INTERACTTYPE
     {
         DYNAMITE,
-        SANDWICH
+        SANDWICH,
+        BACKROOM
     }
 
     [Header("Interaction settings")]
@@ -30,6 +31,11 @@ public class Interact : MonoBehaviour
         {
             gm = FindObjectOfType<GameManager>().GetComponent<GameManager>();
         }
+
+        if (soundManager == null)
+        {
+            soundManager = FindObjectOfType<SoundManager>().GetComponent<SoundManager>();
+        }
     }
     virtual public void ActivateInteract()
     {
@@ -42,9 +48,11 @@ public class Interact : MonoBehaviour
             case INTERACTTYPE.SANDWICH:
                 soundManager.PlaySound(Sounds.Sandwich);
                 cutscene.Play(cutscene.playableAsset);
-                interactAnim.SetBool("Play", true);
+                //interactAnim.SetBool("Play", true);
                 print("see");
                 break;
+            //case INTERACTTYPE.BACKROOM:
+                //cutscene.Play(cutscene)
         }
         StartCoroutine(OverTimer());
 
