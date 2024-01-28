@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Playables;
+using static SoundManager;
 
 public class Interact : MonoBehaviour
 {
@@ -20,7 +21,8 @@ public class Interact : MonoBehaviour
     [Header("Game over settings")]
     [TextArea(0, 4)] public string GameOverText;
     [SerializeField] private float deathTimer = 0.0f;
-    [SerializeField]private GameManager gm;
+    [SerializeField] private GameManager gm;
+    [SerializeField] private SoundManager soundManager;
 
     private void Start()
     {
@@ -34,9 +36,11 @@ public class Interact : MonoBehaviour
         switch (interact)
         {
             case INTERACTTYPE.DYNAMITE:
+                soundManager.PlaySound(Sounds.Dyanmite);
                 interactAnim.SetBool("Play", true);
                 break;
             case INTERACTTYPE.SANDWICH:
+                soundManager.PlaySound(Sounds.Sandwich);
                 cutscene.Play(cutscene.playableAsset);
                 break;
         }

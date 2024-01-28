@@ -2,12 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine;
+using static SoundManager;
 
 public class PlayerScript : MonoBehaviour
 {
     [Header("Script References")]
     public UIManager uiManager;
     public GameManager gameManager;
+    public SoundManager soundManager;
     [Space]
     [Header("Object references")]
     public Camera cam;
@@ -87,6 +89,7 @@ public class PlayerScript : MonoBehaviour
         if (Input.GetMouseButtonDown(1))
         {
             Debug.Log($"Throw");
+            soundManager.PlaySound(Sounds.Throw);
             if (grabbedObject != null)
             {
                 grabbedObject.AddForce(cam.transform.forward * throwSpeed);
@@ -124,12 +127,14 @@ public class PlayerScript : MonoBehaviour
         }
         if (other.CompareTag("WhoopeeCushion"))
         {
-            Debug.LogError($"Played audio for whoopee cushon pleaseeeee");
+            soundManager.PlaySound(Sounds.WhoopeeCushion);
         }
     }
 
     public void GrabObject(Rigidbody _object)
     {
+        soundManager.PlaySound(Sounds.Grab);
+
         grabbedObject = _object;
         holdSpring.transform.position = grabbedObject.transform.position;
 
@@ -142,6 +147,8 @@ public class PlayerScript : MonoBehaviour
 
     public void DropObject()
     {
+        soundManager.PlaySound(Sounds.Drop);
+
         // set previous object back to normal physics
         if (grabbedObject != null)
         {

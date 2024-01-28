@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Linq;
+using static SoundManager;
 
 public class CauldronEvents : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class CauldronEvents : MonoBehaviour
     public CauldronUI cauldronUI;
     public GameManager gameManager;
     public PlayerScript playerScript;
+    public SoundManager soundManager;
 
     private List<string> ObjectsInCauldron = new List<string>();
     private List<GameObject> GameObjectsInCauldron = new List<GameObject>();
@@ -43,6 +45,7 @@ public class CauldronEvents : MonoBehaviour
             other.transform.position = objectStorage.position;
 
             cauldronUI.PutObjectIn(GameObjectsInCauldron.Count - 1);
+            soundManager.PlaySound(Sounds.ItemInCauldron);
         }
     }
     private void Update()
@@ -105,7 +108,13 @@ public class CauldronEvents : MonoBehaviour
         if (areEqual)
         {
             Debug.Log("SUCCESS");
+            soundManager.PlaySound(Sounds.SolvedPuzzle);
             gameManager.CauldronSolved();
+        }
+        else
+        {
+
+            soundManager.PlaySound(Sounds.Incorrect);
         }
     }
 }

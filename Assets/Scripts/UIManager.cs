@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine;
 using TMPro;
 using UnityEditor.SearchService;
+using static SoundManager;
 
 public class UIManager : MonoBehaviour
 {
@@ -21,6 +22,8 @@ public class UIManager : MonoBehaviour
     public RadialSlider timerSlider;
 
     public TextMeshProUGUI gameOverText;
+
+    public SoundManager soundManager;
 
     private void Start()
     {
@@ -63,6 +66,7 @@ public class UIManager : MonoBehaviour
 
     public void StartPressed(bool _active)
     {
+        soundManager.PlaySound(Sounds.ButtonPressed);
         startScreen.SetActive(_active);
         gameManager.GameStart();
         stopWatchAnimator.SetTrigger("Start");
@@ -70,10 +74,12 @@ public class UIManager : MonoBehaviour
 
     public void RestartPressed()
     {
+        soundManager.PlaySound(Sounds.ButtonPressed);
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
     public void ExitPressed()
     {
+        soundManager.PlaySound(Sounds.ButtonPressed);
         SceneManager.LoadScene("MainMenu");
     }
 }

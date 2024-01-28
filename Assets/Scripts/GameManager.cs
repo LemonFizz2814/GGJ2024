@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using static SoundManager;
 
 public class GameManager : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class GameManager : MonoBehaviour
     public UIManager uiManager;
     public PlayerScript playerScript;
     public FirstPersonController firstPersonController;
+    public SoundManager soundManager;
     [Space]
     [Header("Variables")]
     public float gameTime;
@@ -48,6 +50,7 @@ public class GameManager : MonoBehaviour
             if (timer <= 0)
             {
                 // spawn in wizard when time is up
+                soundManager.PlaySound(Sounds.TimesUp);
                 wizard.GetComponent<NavMeshAgent>().Warp(wizardSpawn.position);
                 uiManager.DisplayWizardScreen(true);
                 startTimer = false;
@@ -65,6 +68,8 @@ public class GameManager : MonoBehaviour
             playerScript.SetCanMove(false);
             firstPersonController.SetCanMove(false);
 
+            soundManager.PlaySound(Sounds.Gameover);
+
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
         }
@@ -81,6 +86,8 @@ public class GameManager : MonoBehaviour
         uiManager.DisplayGameWon(true);
         playerScript.SetCanMove(false);
         firstPersonController.SetCanMove(false);
+
+        soundManager.PlaySound(Sounds.Gamewon);
 
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
