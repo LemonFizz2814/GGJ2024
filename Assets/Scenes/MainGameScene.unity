@@ -581,33 +581,35 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   soundEffects:
   - sound: 0
-    clip: {fileID: 0}
+    clip: {fileID: 8300000, guid: fb180261925066c4a961b031473b87f8, type: 3}
   - sound: 1
-    clip: {fileID: 0}
+    clip: {fileID: 8300000, guid: 54e7da1c54f842b4498d47b642459b8a, type: 3}
   - sound: 2
-    clip: {fileID: 0}
+    clip: {fileID: 8300000, guid: 8f6d89f2fd51b714888ce833cd0f8f85, type: 3}
   - sound: 3
-    clip: {fileID: 0}
+    clip: {fileID: 8300000, guid: 18da9cd0d135d9b4db8b9f8d907c9dca, type: 3}
   - sound: 4
-    clip: {fileID: 0}
+    clip: {fileID: 8300000, guid: 32a06af0b6f1e3d4cb12b3eb5c512deb, type: 3}
   - sound: 5
-    clip: {fileID: 0}
+    clip: {fileID: 8300000, guid: 866bf87a6d720cb4895736df2383e080, type: 3}
   - sound: 6
-    clip: {fileID: 0}
+    clip: {fileID: 8300000, guid: 6c94cde17956b5845ab54a40c608c0f0, type: 3}
   - sound: 7
-    clip: {fileID: 0}
+    clip: {fileID: 8300000, guid: d5e5a253b497aa24ca034aee53a712cb, type: 3}
   - sound: 8
-    clip: {fileID: 0}
+    clip: {fileID: 8300000, guid: 3d19dcb7f69113e478fbabdefa07ff89, type: 3}
   - sound: 9
-    clip: {fileID: 0}
+    clip: {fileID: 8300000, guid: 9879afae3306451499c471ff6e6b199e, type: 3}
   - sound: 10
-    clip: {fileID: 0}
+    clip: {fileID: 8300000, guid: cffd6b1952f960748ae90e885d91c454, type: 3}
   - sound: 11
-    clip: {fileID: 0}
+    clip: {fileID: 8300000, guid: afb71920a2a46854fa423278011c61e9, type: 3}
   - sound: 12
-    clip: {fileID: 0}
+    clip: {fileID: 8300000, guid: e688419189291944f850b35c3bd5baec, type: 3}
+  - sound: 14
+    clip: {fileID: 8300000, guid: 8aae895a9d4c6b74ba5d672916e9f081, type: 3}
   - sound: 13
-    clip: {fileID: 0}
+    clip: {fileID: 8300000, guid: 86a8eb1e26e7883429becb3444347c1e, type: 3}
 --- !u!4 &285659959
 Transform:
   m_ObjectHideFlags: 0
