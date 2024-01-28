@@ -46,7 +46,7 @@ public class PlayerScript : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, grabDistance, layerMaskGrabbable))
         {
-            uiManager.ScaleCrosshair(2.5f);
+            uiManager.SetCrosshair(1);
 
             if (Input.GetMouseButtonDown(0))
             {
@@ -65,7 +65,7 @@ public class PlayerScript : MonoBehaviour
         }
         else if (Physics.Raycast(cam.transform.position, cam.transform.forward * grabDistance, out hit, Mathf.Infinity, layerMaskInteract))
         {
-            uiManager.ScaleCrosshair(2.5f);
+            uiManager.SetCrosshair(2);
 
             if (Input.GetMouseButtonDown(0))
             {
@@ -77,7 +77,7 @@ public class PlayerScript : MonoBehaviour
         }
         else
         {
-            uiManager.ScaleCrosshair(1);
+            uiManager.SetCrosshair(0);
         }
 
         if (Input.GetMouseButtonUp(0))

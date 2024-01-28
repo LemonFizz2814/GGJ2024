@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine;
 using TMPro;
 using static SoundManager;
+using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
@@ -17,12 +18,15 @@ public class UIManager : MonoBehaviour
 
     public Animator stopWatchAnimator;
 
-    public RectTransform crosshair;
+    public Image crosshair;
     public RadialSlider timerSlider;
 
     public TextMeshProUGUI gameOverText;
 
     public SoundManager soundManager;
+
+    public Sprite[] crossHairSprite;
+
 
     private void Start()
     {
@@ -46,9 +50,9 @@ public class UIManager : MonoBehaviour
         wizardScreen.SetActive(_active);
     }
 
-    public void ScaleCrosshair(float _scale)
+    public void SetCrosshair(int _imageType)
     {
-        crosshair.localScale = new Vector3(_scale, _scale, _scale);
+        crosshair.sprite = crossHairSprite[_imageType];
     }
     public void SetTimerSlider(float _fill)
     {
