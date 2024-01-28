@@ -66,7 +66,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Gandalf the Gay is after you
+  m_text: Uncle Gandalf is after you
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c1ac72f10e3fcb9439176ed1edc532fa, type: 2}
   m_sharedMaterial: {fileID: 83039995520478610, guid: c1ac72f10e3fcb9439176ed1edc532fa, type: 2}
@@ -1333,6 +1333,7 @@ GameObject:
   - component: {fileID: 6700192341893552967}
   - component: {fileID: 6700192341893552964}
   - component: {fileID: 6700192341893552965}
+  - component: {fileID: 3321124179780018812}
   m_Layer: 5
   m_Name: ExitButton
   m_TagString: Untagged
@@ -1455,6 +1456,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 1
+--- !u!114 &3321124179780018812
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6700192341893552963}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb467e5b7308e084a91ef48329a6c88c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6700192341969427364
 GameObject:
   m_ObjectHideFlags: 0
@@ -2026,6 +2039,7 @@ GameObject:
   - component: {fileID: 6700192342859149891}
   - component: {fileID: 6700192342859149888}
   - component: {fileID: 6700192342859149889}
+  - component: {fileID: 6165679372128682036}
   m_Layer: 5
   m_Name: ExitButton
   m_TagString: Untagged
@@ -2148,6 +2162,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 1
+--- !u!114 &6165679372128682036
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6700192342859149919}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb467e5b7308e084a91ef48329a6c88c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6700192343030411238
 GameObject:
   m_ObjectHideFlags: 0
@@ -2160,6 +2186,7 @@ GameObject:
   - component: {fileID: 6700192343030411242}
   - component: {fileID: 6700192343030411243}
   - component: {fileID: 6700192343030411240}
+  - component: {fileID: 8892043329313123778}
   m_Layer: 5
   m_Name: RestartButton
   m_TagString: Untagged
@@ -2282,6 +2309,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 1
+--- !u!114 &8892043329313123778
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6700192343030411238}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb467e5b7308e084a91ef48329a6c88c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6700192343090413720
 GameObject:
   m_ObjectHideFlags: 0
@@ -3204,7 +3243,7 @@ MonoBehaviour:
   m_text: John Cordless - "I appear to be in a wizards home somehow, I can pick up
     things with left mouse and throw with right mouse. To open the door I've got
     to put the correct 3 glowing ingredients into the cauldron in the kitchen to
-    unlock the door to escape before Gandalf the Gay comes home!"
+    unlock the door to escape before Uncle Gandalf comes home!"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c1ac72f10e3fcb9439176ed1edc532fa, type: 2}
   m_sharedMaterial: {fileID: 83039995520478610, guid: c1ac72f10e3fcb9439176ed1edc532fa, type: 2}
