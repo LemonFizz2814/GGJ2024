@@ -38,7 +38,6 @@ public class PlayerScript : MonoBehaviour
     {
         if (!canMove)
         {
-            fpcPlayer.cameraCanMove = false;
             fpcPlayer.playerCanMove = false;
             return;
         }
@@ -72,6 +71,7 @@ public class PlayerScript : MonoBehaviour
                 Interact objInteract = hit.transform.gameObject.GetComponent<Interact>();
                 objInteract.ActivateInteract();
                 canMove = false;
+                fpcPlayer.cameraCanMove = false;
             }
             //Debug.Log(hit.transform.name);
         }
@@ -135,9 +135,9 @@ public class PlayerScript : MonoBehaviour
             objInteract.ActivateInteract();
             canMove = false;
             //Adjust player angle
-            Vector3 rot = transform.rotation.eulerAngles;
-            rot.y = 179.6f;
-            transform.rotation = Quaternion.Euler(rot);
+            //Vector3 rot = transform.rotation.eulerAngles;
+            //rot.y = 179.6f;
+            //transform.rotation = Quaternion.Euler(rot);
         }
     }
 
