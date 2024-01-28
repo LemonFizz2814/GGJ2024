@@ -76,6 +76,26 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 8aae895a9d4c6b74ba5d672916e9f081, type: 3}
   - sound: 13
     clip: {fileID: 8300000, guid: 86a8eb1e26e7883429becb3444347c1e, type: 3}
+  - sound: 15
+    clip: {fileID: 8300000, guid: fdc3c859855727541899fa9e96f68f49, type: 3}
+  - sound: 16
+    clip: {fileID: 8300000, guid: 635d7e4a7c8edaa46a9f795edac6db9f, type: 3}
+  - sound: 17
+    clip: {fileID: 8300000, guid: c86dd5edb6bb1ae4b8e6cfbc6c55590f, type: 3}
+  - sound: 14
+    clip: {fileID: 8300000, guid: 8aae895a9d4c6b74ba5d672916e9f081, type: 3}
+  randomAudio:
+  - {fileID: 8300000, guid: 60118dfa3843e3846af5da53bc6caf34, type: 3}
+  - {fileID: 8300000, guid: e3849396b79aa9d4b8c9cab4d378db2b, type: 3}
+  - {fileID: 8300000, guid: 8504b61475da3d64cbcc2cc664d5807a, type: 3}
+  - {fileID: 8300000, guid: e43fbfac014681b43b88661deb92f122, type: 3}
+  - {fileID: 8300000, guid: 6258d85650753ec48be0c524541c6ead, type: 3}
+  - {fileID: 8300000, guid: d8b05deb4cff5364aab31d6d5632b9a4, type: 3}
+  - {fileID: 8300000, guid: 57501c23dbcb91f46972076071b8d404, type: 3}
+  - {fileID: 8300000, guid: b37167a5a7625b445805df71b41cd45e, type: 3}
+  - {fileID: 8300000, guid: 77c9fe5dd792edc4a9a7ee1558fb2482, type: 3}
+  - {fileID: 8300000, guid: 38a1e694daedf7146806eb0e024c1680, type: 3}
+  playRandomSoundTime: 45
 --- !u!82 &4722551931770088277
 AudioSource:
   m_ObjectHideFlags: 0
