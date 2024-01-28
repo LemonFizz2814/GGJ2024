@@ -33,6 +33,7 @@ public class SoundManager : MonoBehaviour
         Dyanmite, // done
         Sandwich, // done
         ButtonHover, // 
+        BananaMonsterWalk
     }
 
     private void Start()
