@@ -51,8 +51,9 @@ public class Interact : MonoBehaviour
                 //interactAnim.SetBool("Play", true);
                 print("see");
                 break;
-            //case INTERACTTYPE.BACKROOM:
-                //cutscene.Play(cutscene)
+            case INTERACTTYPE.BACKROOM:
+                cutscene.Play(cutscene.playableAsset);
+                break;
         }
         StartCoroutine(OverTimer());
 

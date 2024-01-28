@@ -129,6 +129,16 @@ public class PlayerScript : MonoBehaviour
         {
             soundManager.PlaySound(Sounds.WhoopeeCushion);
         }
+        if (other.CompareTag("Backrooms"))
+        {
+            Interact objInteract = other.gameObject.GetComponent<Interact>();
+            objInteract.ActivateInteract();
+            canMove = false;
+            //Adjust player angle
+            Vector3 rot = transform.rotation.eulerAngles;
+            rot.y = 179.6f;
+            transform.rotation = Quaternion.Euler(rot);
+        }
     }
 
     public void GrabObject(Rigidbody _object)

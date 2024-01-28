@@ -464,6 +464,57 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2bce021bcaec09408eed9d6b90347e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &321974012
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 321974014}
+  - component: {fileID: 321974013}
+  m_Layer: 0
+  m_Name: BackroomCutscene
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!320 &321974013
+PlayableDirector:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 321974012}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_PlayableAsset: {fileID: 11400000, guid: cc09c1789227e0b4a96896608458134c, type: 2}
+  m_InitialState: 0
+  m_WrapMode: 2
+  m_DirectorUpdateMode: 1
+  m_InitialTime: 0
+  m_SceneBindings:
+  - key: {fileID: -6597450844686194315, guid: cc09c1789227e0b4a96896608458134c, type: 2}
+    value: {fileID: 1196678396}
+  m_ExposedReferences:
+    m_References: []
+--- !u!4 &321974014
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 321974012}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -16.224075, y: -120.88485, z: -170.71338}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 14
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &412746696
 GameObject:
   m_ObjectHideFlags: 0
@@ -1539,6 +1590,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &1196678396 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 6326721628234317593, guid: a13e2979cf3d2c64889e53eba5481c3d, type: 3}
+  m_PrefabInstance: {fileID: 8302159160553403559}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1269937498
 GameObject:
   m_ObjectHideFlags: 0
@@ -2659,6 +2715,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -13.25
       objectReference: {fileID: 0}
+    - target: {fileID: 4370330979029802543, guid: a13e2979cf3d2c64889e53eba5481c3d, type: 3}
+      propertyPath: cutscene
+      value: 
+      objectReference: {fileID: 321974013}
     - target: {fileID: 4858457769870402765, guid: a13e2979cf3d2c64889e53eba5481c3d, type: 3}
       propertyPath: gm
       value: 
