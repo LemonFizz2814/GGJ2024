@@ -30,6 +30,7 @@ public class GameManager : MonoBehaviour
         timer = gameTime;
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+        soundManager.PlaySound(Sounds.Intro);
     }
 
     public void GameStart()
@@ -91,6 +92,8 @@ public class GameManager : MonoBehaviour
 
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+
+        soundManager.PlaySound(Sounds.Ending);
     }
 
     public void SetStartTimer(bool _set)

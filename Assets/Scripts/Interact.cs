@@ -47,6 +47,7 @@ public class Interact : MonoBehaviour
                 break;
             case INTERACTTYPE.SANDWICH:
                 soundManager.PlaySound(Sounds.Sandwich);
+                soundManager.PlaySound(Sounds.Sandiwich);
                 cutscene.Play(cutscene.playableAsset);
                 //interactAnim.SetBool("Play", true);
                 print("see");

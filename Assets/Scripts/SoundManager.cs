@@ -6,6 +6,9 @@ using UnityEngine;
 public class SoundManager : MonoBehaviour
 {
     public List<SoundEffects> soundEffects = new List<SoundEffects>();
+    public List<AudioClip> randomAudio = new List<AudioClip>();
+
+    public int playRandomSoundTime;
 
     private AudioSource audioSource;
 
@@ -33,17 +36,28 @@ public class SoundManager : MonoBehaviour
         Dyanmite, // done
         Sandwich, // done
         ButtonHover, // 
-        BananaMonsterWalk
+        BananaMonsterWalk,
+        Ending,
+        Intro, // done
+        Sandiwich,
     }
 
     private void Start()
     {
         audioSource = GetComponent<AudioSource>();
+        StartCoroutine(PlayRandomAudio());
     }
 
     public void PlaySound(Sounds _sound)
     {
         audioSource.PlayOneShot(GetClip(_sound));
+    }
+
+    IEnumerator PlayRandomAudio()
+    {
+        yield return new WaitForSeconds(playRandomSoundTime);
+        audioSource.PlayOneShot(randomAudio[UnityEngine.Random.Range(0, randomAudio.Count)]);
+        StartCoroutine(PlayRandomAudio());
     }
 
     AudioClip GetClip(Sounds _sound)
